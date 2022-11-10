@@ -23,3 +23,13 @@ spec:
               name: thing-docs-working
               port:
                 number: 8080
+    - host: thing-docs-bad.managemc.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/docs"
+          backend:
+            service:
+              name: thing-docs-bad
+              port:
+                number: 8081
