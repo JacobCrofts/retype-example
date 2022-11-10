@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: thing-docs-working
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 80
+  selector:
+    app: thing-docs-working
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: thing-docs-working
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thing-docs-working
+  template:
+    metadata:
+      labels:
+        app: thing-docs-working
+    spec:
+      containers:
+        - name: thing-docs-working
+          image: registry.digitalocean.com/managemc-container-registry/thing_docs:good
+          ports:
+            - containerPort: 8080
+          args: []
