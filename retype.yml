@@ -1,6 +1,6 @@
 input: .
 output: .retype
-url: thing-docs-working.managemc.com
+url: localhost:8080/docs
 branding:
   title: Thing Docs
   label: Docs
